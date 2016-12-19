@@ -170,3 +170,8 @@ To add more keywords to blacklist, append a new cell with your keyword in `profa
 To blacklist a user, you can use the command line interface or append a new cell with the email you want to blacklist in `user_blacklist` sheet.
 
 If you accidentally deleted your any of your `_data/comments/*.yml` file, you can move (cut and paste, not copy) required (or all) comments from `published` sheet to `pending`. Make sure to move the comments in top of `pending` sheet (to keep comments sorted by date)
+
+## Tips
+
+Create an alias to update comments
+`alias jcomm='cd ~/path/to/sample-project; python jekyll-comments/comments.py'`
