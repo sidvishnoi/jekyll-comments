@@ -80,7 +80,7 @@ jekyll-comments/
 * Add following line between `<head> ... </head>` of each of your page: 
 
 ``` liquid
-{% raw %}<meta name="google-signin-client_id" content="{{site['jekyll-comments']['client_id']}}">{% endraw %}
+<meta name="google-signin-client_id" content="{{site['jekyll-comments']['client_id']}}">
 ```
 
 Include `comments.html` in your posts as:
