@@ -66,40 +66,38 @@ Alternatively, follow these steps:
 
 Copy `jekyll-comments/` and all its contents to your project folder. Add `jekyll-comments/` to exclusions in your Jekyll config and gitignore \
 
-{% highlight yml %}
+``` yml
 # _config.yml
 exclude: ['jekyll-comments/']
 
 # .gitignore
 jekyll-comments/
-{% endhighlight %}
+```
 
 * Copy `jekyll-comments/comments.html` to your project's `_includes/comments.html` folder.
 * Copy `jekyll-comments/comments.sass` to `assets/css/comments.sass`.
 * Copy `jekyll-comments/comments.js` to `assets/js/comments.js`.
 * Add following line between `<head> ... </head>` of each of your page: 
 
-{% highlight liquid %}
+``` liquid
 {% raw %}<meta name="google-signin-client_id" content="{{site['jekyll-comments']['client_id']}}">{% endraw %}
-{% endhighlight %}
+```
 
 Include `comments.html` in your posts as:
 
-{% highlight liquid %}
-{% raw %}
+``` liquid
 {% unless page.comments == "nope" %}
 <div id="comment-section" class="comment-section">
 	{% include comments.html %}
 </div>
 {% endunless %}
-{% endraw %}
-{% endhighlight %}
+```
 
 ## Configure
 
 Open your `_config.yml` and add the following in end:
 
-{% highlight yml %}
+``` yml
 jekyll-comments:
   apiUrl: ""
   # [REQUIRED] the url you received from Google Apps Script step, e.g.
@@ -119,12 +117,12 @@ jekyll-comments:
   # YOUR_CLIENT_ID.apps.googleusercontent.com
   sort: "newest_first"
   # comment sorting: "newest_first" or "oldest_first"
-{% endhighlight %}
+```
 
 
 In `jekyll-comments/comments.py`, edit the `deleteKey` in settings in `def main()`. This is the same deleteKey as in the GoogleAppsScript.
 
-{% highlight python %}
+``` python
 settings = {
 	"deleteKey": "",
 	# a key that is known only to you - this is the same key as in comments.gs file
@@ -133,7 +131,7 @@ settings = {
 	# default: "123456789"
 	...
 }
-{% endhighlight %}
+```
 
 If you want these settings as defaults, do not delete the keys, assign them `""`
 
@@ -143,11 +141,11 @@ If you want these settings as defaults, do not delete the keys, assign them `""`
 
 In your post's frontmatter,
 
-{% highlight python %}
+``` python
 comments: "disallow" # to disallow new comments, shows pre-existing comments
 comments: "nope" # to completely disable the comments on page
 # write nothing to allow comments
-{% endhighlight %}
+```
 
 ### Posting a comment
 
@@ -155,7 +153,7 @@ Use the comment form on your built pages to post comments or replies.
 
 ### Moderating
 
-{% highlight bash %}
+``` bash
 $ cd path/to/your/project_name/
 $ python jekyll-comments/comments.py
 # or, if you want to allow all comments without pressing [allow] each time
@@ -163,7 +161,7 @@ $ python jekyll-comments/comments.py
 # now moderate comments as you wish, the comments allowed are put into respective _data/comments/*.yml files
 $ bundle exec jekyll serve
 # to view your comments locally
-{% endhighlight %}
+```
 
 You can also moderate the comments from your Google spreadsheet.
 
