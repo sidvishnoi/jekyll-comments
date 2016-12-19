@@ -174,4 +174,6 @@ If you accidentally deleted your any of your `_data/comments/*.yml` file, you ca
 ## Tips
 
 Create an alias to update comments
-`alias jcomm='cd ~/path/to/sample-project; python jekyll-comments/comments.py'`
+```
+alias jcomm='cd ~/path/to/sample-project; python jekyll-comments/comments.py'
+```
