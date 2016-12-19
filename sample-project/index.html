@@ -1,0 +1,22 @@
+---
+layout: home
+---
+
+{% for post in site.posts %}
+<section class="post">
+		<header class="post-header">
+				<h2 class="post-title"><a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title | escape }}</a></h2>
+				<p class="post-meta">
+						{% assign comment_data_file = post.path | split:'/' | last | remove:'.md' %}
+						{% assign comment_count =  site.data.comments[comment_data_file].count.comments %}
+						{% if site["jekyll-comments"]["count_replies"] == "yes" %}{% assign comment_count = comment_count | plus:  site.data.comments[comment_data_file].count.replies %}{% endif %}
+						By <a class="post-author" href="https://twiiter.com/sid_vishnoi">Sid Vishnoi</a> • <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }} • {{ comment_count }} comments.</span>
+				</p>
+		</header>
+		<div class="post-description">
+				<p>
+						{{post.excerpt}}
+				</p>
+		</div>
+</section>
+{% endfor %}

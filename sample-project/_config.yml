@@ -1,0 +1,21 @@
+title: Jekyll Comments
+description: > 
+  Jekyll Comments lets you have static user generated comments to your static Jekyll website, and features profanity filtering, keyword blacklisting and moderation of comments.
+twitter_username: sid_vishnoi
+github_username:  sidvishnoi
+github_repo: "https://github.com/sidvishnoi/jekyll-comments"
+
+# Build settings
+markdown: kramdown
+theme: minima
+
+exclude: [Gemfile', 'Gemfile.lock', 'jekyll-comments/']
+
+jekyll-comments:
+  apiUrl: ""
+  commentsDir: ""
+  logFile: ""
+  saveAsmd5: False
+  client_id: ""
+  sort: "newest_first" # "newest_first" or "oldest_first"
+  count_replies: "yes" # "yes" or "no"

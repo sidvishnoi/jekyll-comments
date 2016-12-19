@@ -1,0 +1,251 @@
+---
+# Only the main Sass file needs front matter (the dashes are enough)
+---
+
+$font-primary: Lato, 'Proxima Nova Bold',"Segoe UI",Roboto,"Droid Sans","Helvetica Neue",Calibri, Arial,sans-serif
+$font-secondary: Raleway, Lato, 'Proxima Nova Bold',"Segoe UI",Roboto,"Droid Sans","Helvetica Neue",Calibri, Arial,sans-serif
+
+$color-body: #222
+$color-link: #f06
+$color-sec: #fff
+$color-sec-alt: #000
+$bg-body: #eee url('/assets/img/bg.png')
+$base-size: 16px
+$base-lh: 1.5em
+
+\::-moz-selection
+	color: #222
+	background: #D6EDFF
+	text-shadow: none
+
+\::selection
+	color: #222
+	background: #D6EDFF
+	text-shadow: none
+
+*
+	margin: 0
+	padding: 0
+	box-sizing: border-box
+
+html
+	font-size: $base-size
+	line-height: $base-lh
+
+
+body
+	font-family: $font-primary
+	display: flex
+	flex-direction: column
+	width: 100%
+	display: flex
+	flex-direction: column
+	flex: 1
+	min-height: 100vh
+	background: $bg-body
+
+a
+	text-decoration: none
+	color: $color-link
+
+img
+	max-width: 100%
+
+
+h1, h2, h3, h4
+	font-family: $font-secondary
+
+h1
+	font-size: 1.8em
+	line-height: 1.1em
+
+h2
+	font-size: 1.6em
+	line-height: 1.2em
+
+
+	a
+		color: $color-body
+
+.align-center
+	text-align: center
+
+.header
+	padding-top: .5em
+	display: flex
+	flex-direction: row
+	justify-content: space-between
+	padding-bottom: .5em
+	background-color: $color-link
+	box-shadow: 0px 0px 14px 0px rgba(0, 0, 0, 0.75)
+	width: 100%
+
+	ul
+		margin: 0
+		padding: 0
+		display: flex
+		list-style: none
+
+		@media (max-width: 769px)
+			flex-direction: column
+			align-items: center
+			margin: 0 auto
+
+	a
+		color: $color-sec-alt
+		text-decoration: none
+
+
+	@media (max-width: 769px)
+		flex-direction: column
+		align-items: center
+		margin: 0 auto
+
+
+.main-nav a
+	padding: 10px 15px
+	text-transform: uppercase
+	text-align: center
+	display: block
+	color: $color-sec-alt
+	font-size: .99em
+	opacity: 0.8
+	&:hover
+		opacity: 1
+
+.logo
+	margin: 0
+	font-size: 1.45em
+
+.main-nav
+	margin-top: 5px
+
+.logo a
+	padding: 10px 15px
+	text-transform: uppercase
+	text-align: center
+	display: block
+
+
+
+
+main
+	width: 100%
+	background: $color-sec
+	margin: 1em auto
+	padding: 1em
+	max-width: calc(100vw - 3em)
+	flex: 1
+	box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.15)
+	position: relative
+
+
+	> p:first-child
+		background: #888
+		position: relative
+		left: -1em
+		top: -1em
+		width: calc(100% + 2em)
+	
+	.post-title
+		font-size: 1.8em
+		text-transform: uppercase
+		margin: 0.5em 0 1em
+		border-bottom: 4px solid $color-link
+		position: relative
+
+		span
+			font-size: 0.5em
+			font-weight: 300
+			text-transform: none
+			color: #888
+			position: absolute
+			right: 0
+
+	.post
+		padding: 1em
+		margin: 0 0 1em
+
+	.post-body
+		color: $color-sec-alt
+		padding: 1em
+
+		h1
+			font-size: 1.4em
+
+		h2
+			font-size: 1.2em
+
+		h3
+			font-size: 1.1em
+			text-transform: uppercase
+
+		h2, h3, h4
+			margin: 0.8em 0
+
+		img
+			background: #000
+			display: block
+			margin: 0 auto
+
+		a
+			color: $color-link 
+
+		p+p
+			margin: 0.8em auto
+
+		p:first-child
+			font-style: italic
+			font-size: 1.2em
+			line-height: 1.4em
+			color: rgba(0,0,0,.85)
+
+		strong
+			font-weight: 700
+
+		code
+			font-size: 0.9em
+			font-weight: 700
+
+		pre
+			padding: 1em
+			background: #eee
+			border-top: 4px solid #eee
+			border-bottom: 4px solid #eee
+			margin: 0.2em 0
+
+		ul, ol
+			margin: 1em 0
+
+			@media screen and (max-width:640px)
+				margin: 1em
+
+		blockquote
+			background: #f9f9f9
+			border-left: 10px solid #ccc
+			margin: 1.5em 10px
+			padding: 0.5em 10px
+			quotes: "\201C""\201D""\2018""\2019"
+
+			ul, li
+				margin-left: 1em
+
+			&:before
+				color: #ccc
+				content: open-quote
+				font-size: 6em
+				line-height: 0.1em
+				margin-right: 0.25em
+				vertical-align: -0.4em
+
+.pagination
+	display: flex
+	text-align: center
+
+	span
+		flex: 1
+
+footer
+	background: $color-sec-alt
+	color: $color-sec
+	padding: 1em

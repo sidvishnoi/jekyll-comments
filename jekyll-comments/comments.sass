@@ -1,0 +1,234 @@
+---
+---
+
+#comment_msg 
+	width: 100%
+	min-height: 40px
+	padding: 0.5em
+	color: #fff
+	border-radius: 0 0 2px 2px
+
+	&.active
+		display: block
+
+	&.error
+		background: #da4733
+	&.success
+		background: #3b78e7
+
+
+.load-bar
+	position: relative
+	margin-top: 20px
+	width: 100%
+	height: 6px
+
+.load-bar.active
+	background-color: #fdba2c
+
+	.bar
+		content: ""
+		display: inline
+		position: absolute
+		width: 0
+		height: 100%
+		left: 50%
+		text-align: center
+		&:nth-child(1)
+			background-color: #da4733
+			animation: loading 1.8s linear infinite
+		&:nth-child(2)
+			background-color: #3b78e7
+			animation: loading 1.8s linear 0.6s infinite
+		&:nth-child(3)
+			background-color: #fdba2c
+			animation: loading 1.8s linear 1.2s infinite
+
+@keyframes loading
+	from
+		left: 50%
+		width: 0
+		z-index: 100
+
+	33.3333%
+		left: 0
+		width: 100%
+		z-index: 10
+
+	to
+		left: 0
+		width: 100%
+
+.comment-form
+
+	margin-left: 4em
+	padding: 1em
+
+	#user_panel
+		display: flex
+		vertical-align: middle
+		align-content: justify
+		align-items: center
+		flex: 1
+		width: 100%
+
+		#user_details
+			background: #4285f4
+			color: #fff
+			display:  none
+			vertical-align: middle
+			align-content: justify
+			align-items: center
+			margin: 0.2em 0.2em 0 auto
+			cursor: pointer
+			border-radius: 1px
+			box-shadow: 0 2px 3px 0 rgba(0,0,0,.25)
+
+			&.active
+				display: flex
+
+			&:hover
+				background: #288ce4
+				box-shadow: 0 0 2px 2px rgba(66,133,244,.3)
+
+			&.disabled
+				opacity: 0.5
+				pointer-events: none
+
+			.user_image
+				width: 48px
+				height: 48px
+
+				img
+					border-radius: 50%
+
+			.user_name
+				display: block
+				font-size: 20px
+				padding: 0.2em
+				padding-left: 0.4em
+				padding-right: 2em
+				line-height: 20px
+
+				span
+					display: block
+					font-size: 14px
+					line-height: 14px
+
+		
+	
+		#signout
+			display: none
+			width: 100px
+			text-align: center
+			font-size: 13px
+			line-height: 36px
+			background: #4285f4
+			color: #fff
+			margin: 0.2em
+			cursor: pointer
+			border-radius: 1px
+			box-shadow: 0 2px 3px 0 rgba(0,0,0,.25)
+
+			&.active
+				display: block
+
+	textarea
+		display: block
+		padding: 0.8em
+		margin: 0 auto
+		width: 100%
+		border: none
+		border: 2px solid #dbdfe4
+		border-radius: 0.5em 0.5em 0 0
+		background: #fff
+		outline: none
+		resize: none
+		overflow: hidden
+
+		&.disabled
+			opacity: 0.3
+			pointer-events: none
+
+		&.invalid
+			border: 2px solid #dd4b39
+
+		&.success
+			border: 2px solid #3b78e7
+
+	input
+		display: inline-block
+		margin: 0.5em
+		padding: 0.2em
+		border-radius: 0.3em
+		border: 2px solid #dbdfe4
+
+.comment-section
+	padding: 1em
+	font-size: 0.9em
+	border-color: red
+	border-style: solid
+	border-width: 4px 0 4px 0
+	max-width: 1200px
+	margin: 1em auto
+
+	a.avatar
+		text-decoration: none
+		margin: 0 0.5em
+
+		img
+			border-radius: 0.3em
+			max-width: 48px
+
+	.comment-meta
+		color: #7f919e
+		font-size: 0.9em
+
+		a
+			color: #4d4d4d
+			cursor: pointer
+
+			&:hover
+				color: #000
+
+	a.user-name
+		color: #288ce4
+		font-weight: bold
+
+	.comments
+		list-style: none
+
+	.comment
+		margin: 0.2em 0
+		padding: 0.2em
+
+		.com
+			display: flex
+			padding: 0.5em
+			border-left: 0.4em solid transparent
+
+			&:target
+				border-left: 0.4em solid #ffc62e
+
+			&.author_comment
+				background: #eee
+				border-radius: 0 0.2em 0.2em 0
+
+		.replies
+			list-style: none
+			margin-left: 4em
+
+			.reply
+				margin: 0.8em 0
+				padding: 0.5em
+
+				a.avatar
+					img
+						max-width: 36px
+
+
+	.comment-body
+
+		pre
+			font-size: 0.9em
+	

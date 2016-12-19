@@ -1,0 +1,63 @@
+{% include header.html %}
+{% unless page.comments == "nope" %}<link rel="stylesheet" type="text/css" href="/assets/css/comments.css">{% endunless %}
+
+</head>
+<body>
+
+{% assign comment_data_file = page.path | split:'/' | last | remove:'.md' %}
+{% assign comment_count =  site.data.comments[comment_data_file].count.comments %}
+{% if site["jekyll-comments"]["count_replies"] == "yes" %}{% assign comment_count = comment_count | plus:  site.data.comments[comment_data_file].count.replies %}{% endif %}
+
+<div id="layout" class="pure-g">
+    <div class="sidebar pure-u-1 pure-u-md-1-4">
+        <div class="header">
+            <h1 class="brand-title">{{site.title}}</h1>
+            <h2 class="brand-tagline">{{site.description}}</h2>
+            <nav class="nav">
+                <ul class="nav-list">
+                    <li class="nav-item">
+                        <a class="pure-button" href="/">{{site.title}}</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="pure-button" href="https://github.com/sidvishnoi/jekyll-comments">Github</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+    <div class="content pure-u-1 pure-u-md-3-4">
+        <div>
+            <div class="posts">
+                <section class="post">
+                    <header class="post-header">
+                        <h2 class="post-title"><a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ page.title | escape }}</a></h2>
+                        <p class="post-meta">
+                            By <a class="post-author" href="https://twitter.com/sid_vishnoi">Sid Vishnoi</a> • <span class="post-meta">{{ page.date | date: "%b %-d, %Y" }} • {{ comment_count }} comments.</span>
+                        </p>
+                    </header>
+                    <div class="post-description">
+                        <p>
+                            {{content}}
+                        </p>
+                    </div>
+                </section>
+            </div>
+				{% unless page.comments == "nope" %}
+				<div id="comment-section" class="comment-section">
+				{% include comments.html %}
+				</div>
+				{% endunless %}
+            <div class="footer">
+                <div class="pure-menu pure-menu-horizontal">
+                    <ul>
+                        <li class="pure-menu-item"><a href="https://github.com/sidvishnoi/jekyll-comments/" class="pure-menu-link">About</a></li>
+                        <li class="pure-menu-item"><a href="https://twitter.com/sid_vishnoi" class="pure-menu-link">Twitter</a></li>
+                        <li class="pure-menu-item"><a href="https://twitter.com/sidvishnoi/jekyll-comments" class="pure-menu-link">GitHub</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

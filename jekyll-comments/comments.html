@@ -1,0 +1,76 @@
+{% assign comment_data_file = page.path | split:'/' | last | remove:'.md' %}
+
+{% assign all_comments = site.data.comments[comment_data_file].comments %}
+{% if site["jekyll-comments"]["sort"] == "newest_first" %}
+{% assign all_comments = all_comments | reverse %}
+{% endif %}
+
+
+{% assign comment_count =  site.data.comments[comment_data_file].count.comments %}
+{% if site["jekyll-comments"]["count_replies"] == "yes" %}
+{% assign comment_count = comment_count | plus:  site.data.comments[comment_data_file].count.replies %}
+{% endif %}
+
+<h3>{{ comment_count }} comments.</h3>
+
+{% if page.comments == "disallow" %}
+<p>New comments are disabled on this page.</p>
+{% endif %}
+
+{% unless page.comments == "disallow" %}
+<div id="addComment" data-slug="{{comment_data_file}}">
+    <form class="comment-form">
+        <div class="load-bar" id="comment_loader"><div class="bar"></div><div class="bar"></div><div class="bar"></div></div>
+        <textarea rows="5" id="comment_content" placeholder="Join the discussion.."></textarea>
+        <div id="comment_msg"></div>
+        <div id="user_panel">
+            <div id="user_details"></div>
+            <div id="my-signin2"></div>
+            <div id="signout"><span onclick="signOut();">Sign out</span></div>
+        </div>
+    </form>
+</div>
+{% endunless %}
+
+<ul class="comments">
+{% for com in all_comments %}
+    {% assign is_post_author = "" %}{% if page.author %}{% if page.author == com.user %}{% assign is_post_author = " author_comment" %}{% endif %}{% endif %}
+    <li class="comment" id="{{com.id}}">
+    <div class="com{{is_post_author}}" id="comment{{com.id}}">
+        <div class="avatar">
+            <a class="avatar" href="{{com.user}}"><img src="{{com.image}}" /></a>
+        </div>
+        <div class="comment-content">
+            <div class="comment-meta">
+                <a class="user-name" href="#{{com.user}}">{{ com.user }}</a> • <a class="comment-date" href="#comment{{com.id}}" title="{{com.date}} UTC">{{com.date | date: "%-d %B %Y"}}</a> • <a class="action-reply">Reply</a>
+            </div> 
+            <div class="comment-body">{{ com.content | strip | markdownify | remove: "<link" | remove: "<style" | remove: "</style>" |  remove: "<meta>" | remove: "javascript:" | remove:"<script" | remove: "</script>" }}</div>
+        </div>
+    </div>
+	{% if com.replies %}
+        <ul class="replies">
+            {% for reply in com.replies %}
+            {% assign is_post_author = "" %}{% if page.author %}{% if page.author == reply.user %}{% assign is_post_author = " author_comment" %}{% endif %}{% endif %}
+            <li class="reply" id="{{reply.id}}">
+            <div class="com{{is_post_author}}" id="comment{{reply.id}}">
+                <div class="avatar">
+                    <a class="avatar" href="{{reply.user}}"><img src="{{reply.image}}" /></a>
+                </div>
+                <div class="comment-content">
+                    <div class="comment-meta">
+                        <a class="user-name" href="#{{reply.user}}">{{ reply.user }}</a> • <a class="comment-date" href="#comment{{reply.id}}" title="{{reply.date}} UTC">{{reply.date | date: "%-d %B %Y"}}</a> • <a class="action-reply">Reply</a>
+                    </div> 
+                    <div class="comment-body">{{ reply.content | strip | markdownify | remove: "<link" | remove: "<style" | remove: "</style>" |  remove: "<meta>" | remove: "javascript:" | remove:"<script" | remove: "</script>"}}</div>
+                </div>
+            </div>
+            </li>            
+           {% endfor %}
+        </ul>
+	{% endif %}
+    </li>{% endfor %}
+</ul>
+
+{% unless page.comments == "disallow" %}
+<script type="text/javascript" src="/assets/js/comments.js"></script>
+<script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
+{% endunless %}

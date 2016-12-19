@@ -1,0 +1,29 @@
+{% include header.html %}
+
+</head>
+<body>
+
+
+<main>
+<p>## an index page</p>
+<div class="posts">
+{% for p in paginator.posts %}
+	<div class="post">
+		<h2 class="post-title"><a href="{{p.url}}">{{p.title}}</a> <span class="published">published on {{p.date}}</span></h2>
+		<div class="post-body">{{p.content}}</div>
+	</div>
+{% endfor %}
+</div>
+<div class="pagination">
+    <span class="page_number ">Page: {{ paginator.page }} of {{ paginator.total_pages }}</span> 
+    {% if paginator.previous_page %}
+    <span class="prev" rel="prev"><a title="Previous page" href="{{ paginator.previous_page_path }}" class="previous">&#10094;</a></span> {% else %}
+    <span class="previous"><a class="previous">&#10094;</a></span> 
+    {% endif %}
+    {% if paginator.next_page %}
+    <span class="next" rel="next"><a title="Next page" href="{{ paginator.next_page_path }}" class="next">&#10095;</a></span> {% else %}
+    <span class="next"><a class="next">&#10095;</a></span> 
+    {% endif %}
+</div>
+</main>
+{% include footer.html %}
