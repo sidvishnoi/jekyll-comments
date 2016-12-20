@@ -89,7 +89,7 @@ function handle_comment_response(res) {
 			print_comment_msg("Our robots detected that your comment contains some invalid characters or profanity or html outside markdown. Please edit it, else it won't be accepted.", "error")
 			break;
 		case "you are not allowed":
-			print_comment_msg("Oops! Appears your are blacklisted to post comments! Think something is wrong? <a href='/contact/'>Contact a human.</a>", "error")
+			print_comment_msg("Oops! Appears your are blacklisted to post comments! Think something is wrong? Contact a human.", "error")
 			break;
 		default:
 			print_comment_msg("Some error occured. Try again.", "error")
