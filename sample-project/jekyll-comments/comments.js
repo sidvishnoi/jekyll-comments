@@ -109,7 +109,6 @@ function postComment() {
 	var user_details = document.getElementById('user_details');
 
 	var requestBody =  "mode=post&name=" + name + "&email=" + email + "&image=" + image +  "&p=" + activeThread + "&slug=" + slug + "&url=" + encodeURIComponent(window.location.pathname) + "&ct=" + encodeURIComponent(ct);
-	console.log(requestBody)
 
 	comment_loader.classList.add('active');
 	user_details.classList.add('disabled');
@@ -150,8 +149,8 @@ function addComment() {
 }
 
 function reply(to, trigger) {
-	console.log(to, trigger)
-	activeThread = to.id;
+	activeThread = to.id.split("-")[0];
+	console.log(to, trigger, activeThread)
 	var ht = '<form class="comment-form">' + 
 		'<div class="load-bar" id="comment_loader"><div class="bar"></div><div class="bar"></div><div class="bar"></div></div>' +
 		'<textarea rows="5" id="comment_content">[@'+to.name+'](#'+to.id+') </textarea>' +
