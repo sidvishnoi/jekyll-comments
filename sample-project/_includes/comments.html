@@ -35,14 +35,14 @@
 <ul class="comments">
 {% for com in all_comments %}
     {% assign is_post_author = "" %}{% if page.author %}{% if page.author == com.user %}{% assign is_post_author = " author_comment" %}{% endif %}{% endif %}
-    <li class="comment" id="{{com.id}}">
-    <div class="com{{is_post_author}}" id="comment{{com.id}}">
+    <li class="comment">
+    <div class="com{{is_post_author}}" id="{{com.id}}">
         <div class="avatar">
             <a class="avatar" href="{{com.user}}"><img src="{{com.image}}" /></a>
         </div>
         <div class="comment-content">
             <div class="comment-meta">
-                <a class="user-name" href="#{{com.user}}">{{ com.user }}</a> • <a class="comment-date" href="#comment{{com.id}}" title="{{com.date}} UTC">{{com.date | date: "%-d %B %Y"}}</a> • <a class="action-reply">Reply</a>
+                <a class="user-name" href="#{{com.user}}">{{ com.user }}</a> • <a class="comment-date" href="#{{com.id}}" title="{{com.date}} UTC">{{com.date | date: "%-d %B %Y"}}</a> • <a class="action-reply">Reply</a>
             </div> 
             <div class="comment-body">{{ com.content | strip | markdownify | remove: "<link" | remove: "<style" | remove: "</style>" |  remove: "<meta>" | remove: "javascript:" | remove:"<script" | remove: "</script>" }}</div>
         </div>
@@ -51,14 +51,14 @@
         <ul class="replies">
             {% for reply in com.replies %}
             {% assign is_post_author = "" %}{% if page.author %}{% if page.author == reply.user %}{% assign is_post_author = " author_comment" %}{% endif %}{% endif %}
-            <li class="reply" id="{{reply.id}}">
-            <div class="com{{is_post_author}}" id="comment{{reply.id}}">
+            <li class="reply">
+            <div class="com{{is_post_author}}" id="{{reply.id}}">
                 <div class="avatar">
                     <a class="avatar" href="{{reply.user}}"><img src="{{reply.image}}" /></a>
                 </div>
                 <div class="comment-content">
                     <div class="comment-meta">
-                        <a class="user-name" href="#{{reply.user}}">{{ reply.user }}</a> • <a class="comment-date" href="#comment{{reply.id}}" title="{{reply.date}} UTC">{{reply.date | date: "%-d %B %Y"}}</a> • <a class="action-reply">Reply</a>
+                        <a class="user-name" href="#{{reply.user}}">{{ reply.user }}</a> • <a class="comment-date" href="#{{reply.id}}" title="{{reply.date}} UTC">{{reply.date | date: "%-d %B %Y"}}</a> • <a class="action-reply">Reply</a>
                     </div> 
                     <div class="comment-body">{{ reply.content | strip | markdownify | remove: "<link" | remove: "<style" | remove: "</style>" |  remove: "<meta>" | remove: "javascript:" | remove:"<script" | remove: "</script>"}}</div>
                 </div>

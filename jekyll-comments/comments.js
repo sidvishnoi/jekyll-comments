@@ -149,9 +149,9 @@ function addComment() {
 	autosize()
 }
 
-function reply(to, trigger, parent) {
-	console.log(to, trigger, parent)
-	activeThread = parent;
+function reply(to, trigger) {
+	console.log(to, trigger)
+	activeThread = to.id;
 	var ht = '<form class="comment-form">' + 
 		'<div class="load-bar" id="comment_loader"><div class="bar"></div><div class="bar"></div><div class="bar"></div></div>' +
 		'<textarea rows="5" id="comment_content">[@'+to.name+'](#'+to.id+') </textarea>' +
@@ -211,11 +211,10 @@ var replyBtns = document.querySelectorAll("a.action-reply")
 for (var i = replyBtns.length - 1; i >= 0; i--) {
 	replyBtns[i].onclick = function() {
 		var to = {}
-		var parent = this.closest("li.comment").id
 		var trigger = this.closest(".com")
 		to.name = this.closest(".comment-meta").querySelector('.user-name').innerHTML
-		to.id = trigger.parentNode.id
-		reply(to, trigger, parent)
+		to.id = trigger.id
+		reply(to, trigger)
 	}
 }
 
