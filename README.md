@@ -1,5 +1,7 @@
 > Jekyll Comments lets you have static user generated comments to your static Jekyll website, and features profanity filtering, keyword blacklisting and moderation of comments.
 
+![Jekyll Comments Screenshot](https://lh3.googleusercontent.com/rad4NTgziP6QOzg6JdOdcM8U6mM95axAMXPIzSHkg-PK8kZqPySzQIkwIi0ntSxSxNqrJPdQ99asM3zYTwdtLhnNMBRGGzTrfuKCsCgDBottBW7j4L_H3ZmAgOGRRXdl4DCqfOZI9Dff1fCaF94dpJA9sMWPGdS4WPjjkETW2KgRCyl4kjj6x1MdivhyTQAWBcEx1cck-P8ElO5gxcjwUSyEUGi3Ss5-9YFEeMd98FjCz7nNM1Iy1VjvRWMcMhpwH3p2cDDkFfkHTwJMkmXdZfMeX1C1pmbPoHCREL6IyRC-HDd74cT7gDqjJ8iUlYF5diWILJJgkJFCbVsS1RVOE1AaSEldosP5dHlcG8s2Y-IViux2eDP58lt1PgUZ4yfV9OuAlmEAavM-p4esvh5Hjk8y8Cmiulk_gVHwbUCp7ppRoZziYTXq2G3ecmjbFfLdWGzWNy29_upLqWoTBSikWMUa6FRXqkrTQStikVhZ9oDHthsH5y1XqX1Qnl7WZ69y2AVJdj9e8bU_lKcBTsjXAS87g_2_xFLIM8ldHTroOzsa3e1RibDyte6yFl3wHtV5g4Oi6KBX13gxFPX7q7O1N4NjEYurjEJTs620G-IWURSnYxX2=w1760-h990-no)
+
 ## Features
 
 
@@ -26,7 +28,8 @@
 
 ## Setup
 
-[Video Tutorial - coming soon](#) 
+#### [Video Tutorial - Static Comments for your Jekyll Website](https://www.youtube.com/watch?v=qdHL4h4Wvuk) 
+(*sorry for lag in video, will create new one and reupload soon*)
 
 Install following python modules, if you don't have them
 
